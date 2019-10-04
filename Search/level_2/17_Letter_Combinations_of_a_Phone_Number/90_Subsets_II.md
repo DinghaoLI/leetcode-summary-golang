@@ -27,7 +27,7 @@ func subsetsWithDup(nums []int) [][]int {
 
     res := [][]int{}
     solution := []int{}
-    // backtrace
+    // backtracking
     var dfs func(idx int)
     dfs = func(idx int) {
         tmp := make([]int, len(solution))
