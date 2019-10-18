@@ -27,6 +27,7 @@ Explanation: There are two distinct solutions to the 4-queens puzzle as shown be
 
 
 ```golang
+// DFS
 func totalNQueens(n int) int {
     if n == 0 {
         return 0
