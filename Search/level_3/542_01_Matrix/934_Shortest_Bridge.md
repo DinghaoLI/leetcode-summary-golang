@@ -34,8 +34,10 @@ A[i][j] == 0 or A[i][j] == 1
 - Use DFS to find one island and color all the nodes as 2.
 - Use BFS to find the shortest path from any nodes with color 2 to any nodes with color 1.
 
+``
 Time complexity: O(mn)
 Space complexity: O(mn)
+``
 
 
 ```golang

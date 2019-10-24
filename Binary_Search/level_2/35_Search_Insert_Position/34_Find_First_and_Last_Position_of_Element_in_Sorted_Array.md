@@ -23,6 +23,12 @@ Output: [-1,-1]
 
 ## binary search + extension
 
+```
+m: the length of extension
+Time complexity: O(logn + m)
+Space comlexity: O(1)
+```
+
 ```golang
 func searchRange(nums []int, target int) []int {
 	index := binarySearch(nums, target)
@@ -30,6 +36,7 @@ func searchRange(nums []int, target int) []int {
 		return []int{-1, -1}
 	}
 
+	// expand
 	first := index
 	for first > 0 && nums[first-1] == target{
 		first--
@@ -50,20 +57,24 @@ func binarySearch(nums []int, target int) int {
 	for low <= high {
 		median = (low + high) / 2
 
-		switch {
-		case nums[median] < target:
-			low = median + 1
-		case nums[median] > target:
-			high = median - 1
-		default:
-			return median
-		}
+		if nums[median] < target {
+            low = median + 1
+        } else if nums[median] > target {
+            high = median - 1
+        } else {
+            return median
+        }	
 	}
 	return -1
 }
 ```
 
 ## pure binary search
+
+```
+Time complexity: O(logn + p*logq) // q < n, p < log n
+Space comlexity: O(1)
+```
 
 ```golang
 func searchRange(nums []int, target int) []int {
@@ -100,14 +111,13 @@ func search(nums []int, target int) int {
 	for low <= high {
 		median = (low + high) / 2
 
-		switch {
-		case nums[median] < target:
-			low = median + 1
-		case nums[median] > target:
-			high = median - 1
-		default:
-			return median
-		}
+		if nums[median] < target {
+            low = median + 1
+        } else if nums[median] > target {
+            high = median - 1
+        } else {
+            return median
+        }	
 	}
 	return -1
 }
