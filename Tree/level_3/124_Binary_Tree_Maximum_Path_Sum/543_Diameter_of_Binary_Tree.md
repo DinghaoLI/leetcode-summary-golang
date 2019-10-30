@@ -36,13 +36,15 @@ func diameterOfBinaryTree(root *TreeNode) int {
     var dfs func(root *TreeNode) int
     dfs = func(root *TreeNode) int {
         if root == nil { return 0 }
+        // get max diameter from left and right
         left := dfs(root.Left)
         right := dfs(root.Right)
+        // if calculate the max diameter based on root
         sum := left + right
         if sum > d {
             d = sum
         }
-        
+        // for the parent of root
         return max(left, right)+1
     }
     dfs(root)

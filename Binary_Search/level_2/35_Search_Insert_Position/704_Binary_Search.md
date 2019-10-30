@@ -30,7 +30,7 @@ The value of each element in nums will be in the range [-9999, 9999].
 二分搜索模版:
 
 - 边界条件 left <= right
-- 移动 left用left = mid+1， right用right = mid-1
+- mid = (left+right)/2, 根据比较条件移动 left用left = mid+1， right用right = mid-1
 - 最后返回 left
 
 注意以上实现方式有一个好处，就是当循环结束时，如果没有找到目标元素，那么left一定停在恰好比目标大的index上，right一定停在恰好比目标小的index上，所以个人比较推荐这种实现方式。
