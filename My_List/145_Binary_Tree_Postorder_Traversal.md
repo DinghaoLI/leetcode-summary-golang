@@ -61,7 +61,7 @@ func postorderTraversal(root *TreeNode) []int {
         // <node have not node.Right> ||
         // <we have visited node.Right> => we record this node
         if (node.Left == nil && node.Right == nil) || 
-        (node.Right == nil ) || preVisited == node.Right {
+            node.Right == nil || preVisited == node.Right {
             // record
             result = append(result, node.Val)
             preVisited = node
