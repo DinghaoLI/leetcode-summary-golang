@@ -82,7 +82,6 @@ func postorderTraversal(root *TreeNode) []int {
 			cur = cur.Left
 		}
 
-		// pop element
 		if len(stack) != 0 {
 			node := stack[len(stack)-1]
 			// if <node is leaf> || 
@@ -92,8 +91,10 @@ func postorderTraversal(root *TreeNode) []int {
 			   node.Right == nil || preVisited == node.Right {
 				res = append(res, node.Val)
 				preVisited = node
+				// pop element
 				stack = stack[:len(stack)-1]
 			} else {
+				// turn right
 				cur = node.Right
 			}
 		}
